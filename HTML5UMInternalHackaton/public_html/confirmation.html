@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Confirmation</title>
+</head>
+<body>
+    <h1>Confirm Your Order</h1>
+    <form action="ConfirmationServlet" method="post">
+        <label>Pickup or Delivery:</label><br>
+        <input type="radio" id="pickup" name="delivery" value="pickup" required>
+        <label for="pickup">Pickup (Free)</label><br>
+        <input type="radio" id="delivery" name="delivery" value="delivery">
+        <label for="delivery">Delivery (Charges Apply)</label><br><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
