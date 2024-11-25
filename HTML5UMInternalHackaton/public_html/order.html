@@ -12,8 +12,55 @@
             <option value="asian">Asian</option>
             <option value="fastfood">Fast Food</option>
         </select><br><br>
+        
+        <!-- option for Western food menu (back end use switch/if feature)-->
+        <img src="image CC.jpg" width="180" height="180" alt="Grilled chicken chop"/>
+        <p>Grilled chicken chop with Mushroom/BBQ sauce</p>
+        <h4>RM 20</h4>
         <label for="quantity">Number of Sets:</label>
-        <input type="number" id="quantity" name="quantity" min="1" required><br><br>
+        <input type="number" id="quantity_1" name="quantity" min="0" ><br><br>
+        
+        <img src="image LC.jpg" width="180" height="180" alt="Grilled chicken chop"/>
+        <p>Lamb chop with mysterious sauce</p>
+        <h4>RM 35</h4>
+        <label for="quantity">Number of Sets:</label>
+        <input type="number" id="quantity_2" name="quantity" min="0" ><br><br>
+        
+        <img src="image SP.jpg" width="180" height="180" alt="Grilled chicken chop"/>
+        <p>Spaghetti with Special Tomato</p>
+        <h4>RM 15</h4>
+        <label for="quantity">Number of Sets:</label>
+        <input type="number" id="quantity_3" name="quantity" min="0" ><br><br>
+        
+        <!-- option for Asian food menu (back end use switch/if feature)-->
+        <img src="image NL.jpg" width="180" height="180" alt="Grilled chicken chop"/>
+        <p>Nasi Lemak Special</p>
+        <h4>RM 15</h4>
+        <label for="quantity">Number of Sets:</label>
+        <input type="number" id="quantity_4" name="quantity" min="0"><br><br>
+        
+        <img src="image SS.jpg" width="180" height="150" alt="Grilled chicken chop"/>
+        <p>Sushi Family Combo</p>
+        <h4>RM 60</h4>
+        <label for="quantity">Number of Sets:</label>
+        <input type="number" id="quantity_5" name="quantity" min="0"><br><br>
+        
+        <!-- option for Fast Food food menu (back end use switch/if feature)-->
+        <img src="image BG.jpg" width="150" height="180" alt="Grilled chicken chop"/>
+        <p>Avocado Burger</p>
+        <h4>RM 25</h4>
+        <label for="quantity">Number of Sets:</label>
+        <input type="number" id="quantity_6" name="quantity" min="0" ><br><br>
+        
+        <img src="image PZ.jpg" width="180" height="180" alt="Grilled chicken chop"/>
+        <p>Hawaii Pizza</p>
+        <h4>RM 40</h4>
+        <label for="quantity">Number of Sets:</label>
+        <input type="number" id="quantity_7" name="quantity" min="0" ><br><br>
+        
+        <!-- Calculate the total set of dishes, min 1 dish -->
+        <label for="quantity">Number of Sets:</label>
+        <input type="number" id="quantity" name="quantity" min="1" required><br><br> 
         <button type="submit">Confirm Order</button>
     </form>
 </body>

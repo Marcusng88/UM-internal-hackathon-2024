@@ -11,6 +11,16 @@
         <label for="pickup">Pickup (Free)</label><br>
         <input type="radio" id="delivery" name="delivery" value="delivery">
         <label for="delivery">Delivery (Charges Apply)</label><br><br>
+        
+        <!-- if option is delivery, let customer to choose pick up place -->
+        <label for="delivery_confirmation">Delivery Spot:</label>
+        <select id="delivery_confirmation" name="delivery_confirmation" required>
+            <option value="KK 8">RM 2 - Kolej Kediaman Kinabalu UM</option>
+            <option value="FSKTM">RM 3 - Fakulti Sains Komputer dan Teknologi Maklumat UM</option>
+            <option value="UM Sentral">RM 4 - UM Sentral</option>
+        </select><br><br>
+        
+        
         <button type="submit">Submit</button>
     </form>
 </body>
