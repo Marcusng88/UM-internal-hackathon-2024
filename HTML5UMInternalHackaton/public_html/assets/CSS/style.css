@@ -1,0 +1,121 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : 27 Nov 2024, 6:55:41 pm
+    Author     : Harry
+*/
+body{
+    margin:0px;
+    font-family: 'Poppins',sans-serif;
+    background-color: #f4f4f9;
+}
+main{
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 20px;
+}
+h1{
+    margin-top:20px;
+    font-size:36px;
+    text-align: center;
+    color: #EE4423;
+}
+.navbar{
+    width:100%;
+    background-color: #FEAE04;
+
+}
+.navbar ul{
+    list-style-type: none;
+    background-color: #FEAE04;
+    margin:0px;
+    padding:0px;
+    overflow:hidden;
+    display: flex;
+    justify-content: center; 
+}
+.navbar li {
+    margin-right: 20px;
+}
+.navbar a{
+    color:white;
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.navbar a:hover{
+    background-color: #F9C256;
+    transform: scale(1.05);
+    border-radius: 5px;
+}
+.navbar a.hover {
+    background-color: #F9C256;
+}
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.gallery-item {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    text-align: center;
+}
+
+.gallery-item img {
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
+}
+
+.order-form {
+    margin-top: 10px;
+}
+
+.order-form input {
+    width: 60px;
+    padding: 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.order-summary {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+#total-items, #total-price {
+    font-weight: bold;
+    color: #D94B12;
+}
+
+button {
+    background-color: #D94B12;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #F46C02;
+}
