@@ -17,14 +17,17 @@ main{
     padding: 20px;
 }
 h1{
-    margin-top:20px;
-    font-size:36px;
+    margin-left:40px;
+    font-size:48px;
     text-align: center;
-    color: #EE4423;
+    color: #001219; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    color:#FFB301;
 }
 .navbar{
     width:100%;
     background-color: #FEAE04;
+    padding:10px 0;
 
 }
 .navbar ul{
@@ -34,12 +37,16 @@ h1{
     padding:0px;
     overflow:hidden;
     display: flex;
-    justify-content: center; 
+    justify-content: space-evenly; 
+    align-items: center;
+    width:100%;
 }
 .navbar li {
     margin-right: 20px;
 }
 .navbar a{
+    font-size:18px;
+    font-weight: bold;
     color:white;
     text-decoration: none;
     padding: 15px;
@@ -49,8 +56,8 @@ h1{
 }
 .navbar a:hover{
     background-color: #F9C256;
-    transform: scale(1.05);
-    border-radius: 5px;
+    transform: scale(1.1);
+    border-radius: 10px;
 }
 .navbar a.hover {
     background-color: #F9C256;
@@ -119,3 +126,13 @@ button {
 button:hover {
     background-color: #F46C02;
 }
+footer {
+  display: block;
+}
+.image-container2 {
+    display: flex; 
+    gap: 20px; 
+    justify-content: center; 
+    align-items: center; 
+}
+
