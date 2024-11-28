@@ -27,6 +27,21 @@ a{
     text-decoration: none;
 }
 
+.back-btn{
+    border: solid 0.15rem var(--theme-2);
+    border-radius: 50px;
+    padding: 0.8rem 1.2rem;
+    background: transparent;
+    color: var(--theme-2);
+    width: auto;
+    transition: all ease-in-out 0.25s;
+}
+
+.back-btn:hover{
+    color: white;
+    background: var(--theme-2);
+}
+
 /* Element CSS */
 .banner{
     position: relative;
@@ -82,12 +97,12 @@ a{
 }
 
 /* login.html */
-.login-box{
+.login-box, .signup-box{
     display: flex;
     position: relative;
     overflow: hidden;
     width: 50vw;
-    height: 70vh;
+    height: 75vh;
     background: var(--bg-theme);
     border-radius: 4rem;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1),
@@ -95,7 +110,9 @@ a{
 }
 
 .login-form-box{
+    position: relative;
     padding: 3.5rem;
+    width: 70%;
     flex-shrink: 0;
 }
 
@@ -112,4 +129,60 @@ a{
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.input-box{
+    padding: 0.6rem 1rem;
+    border: solid 0.18rem #ffc672;
+    border-radius: 1rem;
+    width: 100%;
+    transition: border ease-in-out 0.3s;
+}
+
+.input-box:focus{
+    border-color: var(--theme-2);
+    outline: none;
+}
+
+.guest-btn, .signup-btn, .login-btn{
+    border: solid 0.1rem var(--theme-1);
+    border-radius: 50px;
+    padding: 0.8rem 1.2rem;
+    background: var(--theme-1);
+    color: white;
+    width: 100%;
+    transition: all ease-in-out 0.25s;
+}
+
+.guest-btn{
+    color: var(--theme-1);
+    background: transparent;
+}
+
+.login-btn:hover, .signup-btn:hover{
+    border-color: var(--theme-2);
+    background: var(--theme-2);
+    transform: translateY(-5px);
+}
+
+.guest-btn:hover{
+    color: white;
+    background: var(--theme-1);
+}
+
+/* login.html */
+.signup-box{
+    height: 80vh;
+}
+
+.signup-btn{
+    width: auto;
+}
+
+/* user-signup.php */
+.modal-content{
+    border: solid 0.3rem var(--theme-1);
+    border-radius: 2rem;
+    background: var(--bg-theme);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 40px rgba(0, 0, 0, 0.2);
 }
