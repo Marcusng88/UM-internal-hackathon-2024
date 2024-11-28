@@ -27,7 +27,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
     </head>
 
     <body>
-        <!-- Animation init -->
+        <!-- Animation init try -->
         <script>AOS.init();</script>
 
         <?php
