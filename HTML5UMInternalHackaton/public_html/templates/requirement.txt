@@ -1,0 +1,6 @@
+to run the feedback file successfully ,need to install flask first
+
+1.COMMAND TO INSTALL FLASK
+pip install flask
+
+2.run the feedback_backend.py file first then only run index.html file ,if not the file cannot run.
