@@ -2,41 +2,143 @@
 <html>
 <head>
     <title>Order Confirmation</title>
-    <link href = "assets/CSS/custom.css" rel="stylesheet">
+    <link href="assets/CSS/custom.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/CSS/style.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+        header {
+            background-color: #d2691e; /* Orange-brownish color */
+            width: 100%;
+            padding: 20px 0;
+            text-align: center;
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            margin-top: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .radio-group {
+            margin-bottom: 20px;
+        }
+        .radio-group label {
+            margin-right: 10px;
+        }
+        .hidden {
+            display: none;
+        }
+        .button-container {
+            text-align: center;
+        }
+        button {
+            background-color: #d2691e; /* Orange-brownish color */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #a0522d; /* Darker shade of orange-brownish */
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .footer img {
+            margin: 0 10px;
+        }
+        .footer p {
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function toggleDeliveryOptions() {
+            var deliveryOption = document.getElementById('delivery');
+            var deliveryContainer = document.getElementById('delivery-container');
+            if (deliveryOption.checked) {
+                deliveryContainer.classList.remove('hidden');
+            } else {
+                deliveryContainer.classList.add('hidden');
+            }
+        }
+    </script>
 </head>
 <body>
-    <h1>Confirm Your Order</h1>
-    <form action="ConfirmationServlet" method="post">
-        <label>Pickup or Delivery:</label><br>
-        <input type="radio" id="pickup" name="delivery" value="pickup" required>
-        <label for="pickup">Pickup (Free)</label><br>
-        <input type="radio" id="delivery" name="delivery" value="delivery">
-        <label for="delivery">Delivery (Charges Apply)</label><br><br>
-        
-        <!-- if option is delivery, let customer to choose pick up place -->
-        <label for="delivery_confirmation">Delivery Spot:</label>
-        <select id="delivery_confirmation" name="delivery_confirmation" required>
-            <option value="KK 8">RM 2 - Kolej Kediaman Kinabalu UM</option>
-            <option value="FSKTM">RM 3 - Fakulti Sains Komputer dan Teknologi Maklumat UM</option>
-            <option value="UM Sentral">RM 4 - UM Sentral</option>
-        </select><br><br>
-        
-        
-        <button type="submit">Submit</button>
-    </form>
-</body>
-<hr>
-    <footer>
-        <div class="image-container2">
+    <header>
+        Kim Seng Restaurant
+    </header>
+    <div class="container">
+        <h1>Confirm Your Order</h1>
+        <form action="ConfirmationServlet" method="post">
+            <div class="form-group">
+                
+                <label for="pickup">Pickup (Free)</label>
+                <input type="radio" id="pickup" name="delivery" value="pickup" required onclick="toggleDeliveryOptions()">
+                
+                <label for="delivery">Delivery (Charges Apply)</label>
+                <input type="radio" id="delivery" name="delivery" value="delivery" onclick="toggleDeliveryOptions()">
+            </div>
+            
+            <!-- Delivery options container -->
+            <div id="delivery-container" class="hidden form-group">
+                <label for="delivery_confirmation">Delivery Spot:</label>
+                <select id="delivery_confirmation" name="delivery_confirmation">
+                    <option value="KK 8">RM 2 - Kolej Kediaman Kinabalu UM</option>
+                    <option value="FSKTM">RM 3 - Fakulti Sains Komputer dan Teknologi Maklumat UM</option>
+                    <option value="UM Sentral">RM 4 - UM Sentral</option>
+                </select>
+            </div>
+            
+            <div class="button-container">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+        <div class="footer">
             <a href="https://www.google.com/maps/dir//607,+Jalan+17%2F10,+Seksyen+17,+46400+Petaling+Jaya,+Selangor/@3.1222898,101.5533822,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x31cc495d298b9beb:0xfe6a13c3cd6df28d!2m2!1d101.6357842!2d3.122293?entry=ttu&g_ep=EgoyMDI0MTExOS4yIKXMDSoASAFQAw%3D%3D" target="_self" title="Our Location">
-                <img src="assets/Images/GM icon.png" width="60" height="60" alt="KIMSENG official IG"/>
+                <img src="assets/Images/GM icon.png" width="60" height="60" alt="Google Maps Location"/>
             </a>
             <a href="https://www.instagram.com/brayden_cjr05/?__pwa=1" target="_self" title="KIMSENG official IG">
                 <img src="assets/Images/IG img.png" width="90" height="90" alt="KIMSENG official IG"/>
             </a>
+            <p>&copy; Karisma Maju Mulia</p>
         </div>
-        <br>
-        <p><strong>&copy Karisma Maju Mulia</strong></p>
-    </footer>
+    </div>
+</body>
 </html>
