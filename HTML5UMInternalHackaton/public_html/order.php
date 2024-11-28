@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    $username = $_SESSION['user'];
+    $email = $_SESSION['email'];
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +28,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Pinyon+Script&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Order Your Food</h1>
+    <h1>Welcome <?php echo $username;?>!</h1>
 
         <nav class =" navbar">
             <ul>

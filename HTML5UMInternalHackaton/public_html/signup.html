@@ -5,7 +5,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
 -->
 <html>
     <head>
-        <title>Login</title>
+        <title>Sign Up for Kimseng</title>
         <link rel="icon" href="assets/Images/ChapterHut Logo.png">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -40,35 +40,34 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
     <body>
         <!-- Animation init -->
         <script>AOS.init();</script>
-        
+
         <section class="p-3">
-            <div class="login-box">
-                <div class="d-flex align-items-center">
+            <div class="signup-box">
+                <div class="d-flex">
                     <div class="login-form-box poppins-semibold">
                         <div>
-                            <span class="d-block fs-5">Welcome to</span>
-                            <span class="fs-2">Kim Seng Restaurant</span>
+                            <span class="d-block fs-5">Just a minute</span>
+                            <span class="fs-2">Let's sign you up</span>
                         </div>
+                        
+                        <form action="user-signup.php" method="post" onsubmit="return validatePassword()">
+                            <span class="d-block fs-6 mt-4">Your email</span>
+                            <input type="text" class="input-box poppins-semibold fs-5 mt-1" name="email" required>
 
-                        <form action="user-login.php" method="post">
-                            <input class="input-box poppins-medium fs-5 mt-4" type="text" name="email" placeholder="Email">
-                            <input class="input-box poppins-medium fs-5 mt-3" type="password" name="password" placeholder="Password">
+                            <span class="d-block fs-6 mt-3">Pick a name</span>
+                            <input type="text" class="input-box poppins-semibold fs-5 mt-1" name="username" required>
 
-                            <a href="signup.html" class="d-block text-center poppins-medium fs-6 mt-3" style="color: #007BFF;">Don't have an account? Sign up here.</a>
+                            <span class="d-block fs-6 mt-3">Set a good password</span>
+                            <input id="password" type="password" class="input-box poppins-semibold fs-5 mt-1" name="password">
+                            <span id="password-message" class="d-block fs-6 mt-1" style="color: red;"></span>
 
-                            <button class="login-btn mt-3" type="submit">
+                            <button class="signup-btn mt-4" type="submit">
                                 <div class="d-flex align-items-center justify-content-center gap-3">
                                     <span class="material-symbols-outlined fs-3">east</span>
                                     <span class="poppins-medium fs-5">Let's go</span>
                                 </div>
                             </button>
                         </form>
-
-                        <a href="order.html" class="guest-btn d-flex justify-content-center align-items-center gap-2 mt-4">
-                            <span class="material-symbols-outlined fs-3">person</span>
-                            <span class="poppins-medium fs-5">Continue as guest</span>
-                        </a>
-
                     </div>
 
                     <div class="login-img-box">
@@ -78,5 +77,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
             </div>
         </section>
 
-    </body>
-</html>
+        <script>
+            function validatePassword() {
+                const password = document.getElementById('password').value;
+                const message = document.getElementById('password-message');
+                const passwordCriteria = /^.{8,}$/;
+                //(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]
+        
+                if (!passwordCriteria.test(password)) {
+                    message.textContent = 'Password must be at least 8 characters long.';
+                    return false; // Prevent form submission
+                }
+        
+                message.textContent = ''; // Clear the message if the password is valid
+                return true; // Allow form submission
+            }
+        </script>
