@@ -46,13 +46,14 @@
             <option value="fastfood">Fast Food</option>
         </select><br><br>-->
         <form action="order-process.php" method="post">
+        <input type="hidden" value="<?php echo $_SESSION['session']?>" name="session">
         <!-- option for Western food menu (back end use switch/if feature)-->
         <div class="gallery-container">
             <div class="gallery-item">
                 <img src="assets/Images/image CC.jpg" alt="Western Dish 1">
                 <div class="order-form">
                     <label for="western1">Western Dish 1 (RM 20.00)</label>
-                    <input type="number" id="western1" name="western1" min="0" value="0" class="item-quantity">
+                    <input type="number" id="western1" name="qty1" min="0" value="0" class="item-quantity">
                     <input type="hidden" value="20.00" name="price1">
                 </div>
             </div>
