@@ -45,7 +45,7 @@
             <option value="asian">Asian</option>
             <option value="fastfood">Fast Food</option>
         </select><br><br>-->
-        <form action="OrderServlet" method="post" enctype="multipart/form-data">
+        <form action="order-process.php" method="post">
         <!-- option for Western food menu (back end use switch/if feature)-->
         <div class="gallery-container">
             <div class="gallery-item">
@@ -53,14 +53,17 @@
                 <div class="order-form">
                     <label for="western1">Western Dish 1 (RM 20.00)</label>
                     <input type="number" id="western1" name="western1" min="0" value="0" class="item-quantity">
+                    <input type="hidden" value="20.00" name="price1">
                 </div>
             </div>
             
             <div class="gallery-item">
                 <img src="assets/Images/image LC.jpg" alt="Western Dish 2">
+
                 <div class="order-form">
                     <label for="western2">Western Dish 2 (RM 32.00)</label>
                     <input type="number" id="western2" name="western2" min="0" value="0" class="item-quantity">
+                    <input type="hidden" value="32.00" name="price2">
                 </div>
             </div>
         </div>
@@ -70,7 +73,7 @@
             <h3>Order Summary</h3>
             <p>Total Items: <span id="total-items">0</span></p>
             <p>Total Price: RM<span id="total-price">0.00</span></p>
-            <button id="place-order">Place Order</button>
+            <button type="submit" id="place-order">Place Order</button>
         </div>
     </form>
 </body>
