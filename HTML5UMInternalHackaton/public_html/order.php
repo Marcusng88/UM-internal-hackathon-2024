@@ -28,7 +28,9 @@
         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Pinyon+Script&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Welcome <?php echo $username;?>!</h1>
+    <header class="header">
+        <h1>Welcome <?php echo $username;?>!</h1>
+    </header>
 
         <nav class =" navbar">
             <ul>
@@ -62,7 +64,7 @@
                 <img src="assets/Images/image LC.jpg" alt="Western Dish 2">
 
                 <div class="order-form">
-                    <label for="western2">Western Dish 2 (RM 32.00)</label>
+                    <label for="western2">Special Lamb Shoulder (RM 32.00)</label>
                     <input type="number" id="western2" name="western2" min="0" value="0" class="item-quantity">
                     <input type="hidden" value="32.00" name="price2">
                 </div>
@@ -77,8 +79,8 @@
             <button type="submit" id="place-order">Place Order</button>
         </div>
     </form>
+        <br><br>
 </body>
-<hr>
     <footer>
         <div class="image-container2">
             <a href="https://www.google.com/maps/dir//607,+Jalan+17%2F10,+Seksyen+17,+46400+Petaling+Jaya,+Selangor/@3.1222898,101.5533822,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x31cc495d298b9beb:0xfe6a13c3cd6df28d!2m2!1d101.6357842!2d3.122293?entry=ttu&g_ep=EgoyMDI0MTExOS4yIKXMDSoASAFQAw%3D%3D" target="_self" title="Our Location">
