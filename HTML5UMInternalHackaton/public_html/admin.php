@@ -19,10 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['download_csv'])) {
     exit();
 }
 ?>
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template
- */
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,8 +41,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['download_csv'])) {
             let ordersExist = false;
 
             // Check if there are any orders stored in sessionStorage
-            for (let key in sessionStorage) {
-                if (sessionStorage.hasOwnProperty(key) && key.startsWith("customer_")) {
+            for (let key in localStorage) {
+                if (localStorage.hasOwnProperty(key) && key.startsWith("customer_")) {
                     ordersExist = true;
                     break;
                 }
@@ -64,9 +61,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['download_csv'])) {
                 csvContent += "Customer Name,Item Name,Quantity,Price (RM)\n";
 
                 // Loop through all customer orders and add them to the CSV
-                for (let key in sessionStorage) {
-                    if (sessionStorage.hasOwnProperty(key) && key.startsWith("customer_")) {
-                        let customer = JSON.parse(sessionStorage.getItem(key));
+                for (let key in localStorage) {
+                    if (localStorage.hasOwnProperty(key) && key.startsWith("customer_")) {
+                        let customer = JSON.parse(localStorage.getItem(key));
                         customer.orders.forEach(order => {
                             csvContent += `${customer.name},${order.name},${order.quantity},${(order.price * order.quantity).toFixed(2)}\n`;
                         });

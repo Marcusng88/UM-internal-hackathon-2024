@@ -22,6 +22,10 @@
             for (let key in sessionStorage) {
                 if (sessionStorage.hasOwnProperty(key) && key.startsWith('item_')) {
                     let item = JSON.parse(sessionStorage.getItem(key));
+
+                    localStorage.setItem(key, JSON.stringify(item));
+                    sessionStorage.removeItem(key);
+
                     orderItems += `<div class="item">
                         <p class="name">${item.name} (Quantity: ${item.quantity})</p>
                         <p class="price">RM ${(item.price * item.quantity).toFixed(2)}</p>
