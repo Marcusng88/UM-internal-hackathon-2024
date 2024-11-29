@@ -6,16 +6,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $orderData = json_decode($_POST['order-data'], true);
     $totalItems = $_POST['total-items'];
     $totalPrice = $_POST['total-price'];
+    $cutlery = $_POST['cutlery'];
+    $delivery = $_POST['delivery'];
+    $spot = $_POST['spot'];
 
     // Save the order data to a CSV file
     $fileExists = file_exists('orders.csv');
     $file = fopen('orders.csv', 'a');
     if (!$fileExists) {
-        fputcsv($file, ['username', 'name', 'quantity', 'price', 'total', 'date']);
+        fputcsv($file, ['username', 'name', 'quantity', 'price', 'total','cutlery', 'delivery', 'spot', 'date']);
     }
     $date = date('Y-m-d');
     foreach ($orderData as $item) {
-        fputcsv($file, [$username, $item['name'], $item['quantity'], $item['price'], $item['total'], $date]);
+        fputcsv($file, [$username, $item['name'], $item['quantity'], $item['price'], $item['total'], $cutlery, $delivery, $spot, $date]);
     }
     fclose($file);
 

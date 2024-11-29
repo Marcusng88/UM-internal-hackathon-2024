@@ -27,6 +27,9 @@
             let totalPrice = 0.0;
             let orderData = [];
             let username = sessionStorage.getItem('username') || 'guest';
+            let cutlery = '<?php echo $cutlery; ?>';
+            let delivery = '<?php echo $delivery; ?>';
+            let spot = '<?php echo $spot; ?>';
 
             // Iterate through all items stored in session storage
             for (let key in sessionStorage) {
@@ -45,18 +48,39 @@
                         quantity: item.quantity,
                         price: item.price,
                         total: item.price * item.quantity
+
                     });
                 }
             }
 
+            // Adjust total price based on cutlery choice
+            if (cutlery === 'yes') {
+                totalPrice += 1.0; // Add RM1 for cutlery
+                cutleryMessage = 'Cutlery cost(RM 1.00)';
+            } else if (cutlery === 'no') {
+                totalPrice *= 0.9; // Apply 10% discount
+                cutleryMessage = '10% discount applied for no cutlery';
+            }
+
+
+
             // Update the order summary in the DOM
             $('.order-items').html(orderItems);
+
+            if (cutleryMessage) {
+                $('.order-items').append(`<p class="cutleryMessage">${cutleryMessage}</p>`);
+            }
+
             $('.total-price').text(`RM ${totalPrice.toFixed(2)}`);
+
 
             // Add order data to hidden fields in the form
             $('#order-data').val(JSON.stringify(orderData));
             $('#total-items').val(totalItems);
             $('#total-price').val(totalPrice);
+            $('#cutlery').val(cutlery);
+            $('#delivery').val(delivery);
+            $('#spot').val(spot);
         });
     </script>
 
@@ -102,6 +126,9 @@
                 <input type="hidden" id="order-data" name="order-data">
                 <input type="hidden" id="total-items" name="total-items">
                 <input type="hidden" id="total-price" name="total-price">
+                <input type="hidden" name="delivery" value="<?php echo $delivery; ?>">
+                <input type="hidden" name="cutlery" value="<?php echo $cutlery; ?>">
+                <input type="hidden" name="spot" value="<?php echo $spot; ?>">
                 <button type="submit" class="upload-btn">Upload</button>
             </form>
         </section>
