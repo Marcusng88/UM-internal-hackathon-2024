@@ -2,19 +2,84 @@
 <html>
 <head>
     <title>Admin Dashboard</title>
-    <link href = "assets/CSS/custom.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/CSS/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- assets/CSS -->
+    <link rel="stylesheet" href="assets/CSS/style_admin.css">
+    <link href="assets/CSS/custom.css" rel="stylesheet">
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="assets/JS/aos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="assets/JS/order.js"></script> <!-- Include the common JavaScript file -->
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <!-- Pinyon Script -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Pinyon+Script&display=swap" rel="stylesheet">
 </head>
 <body>
     <h1>Welcome, Admin</h1>
     <p>You are logged in as an admin.</p>
     <h2>Manage Orders</h2>
     <p>Here, you can view and manage orders placed by users.</p>
-    <!-- Add more admin-related functionality here, like viewing orders, etc. -->
-    <!-- need collaborate with SQL here -->
-    <a href="asian.html">Go to Order Page</a>
+    
+    <section class="download-section">
+    <button id="download-csv" disabled>Download All Orders as CSV</button>
+    <p class="message" id="error-message"></p>
+    </section>
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const downloadButton = document.getElementById("download-csv");
+        const errorMessage = document.getElementById("error-message");
+        let ordersExist = false;
+
+        for (let key in sessionStorage) {
+            if (sessionStorage.hasOwnProperty(key) && key.startsWith("customer_")) {
+                ordersExist = true;
+                break;
+            }
+        }
+
+        if (ordersExist) {
+            downloadButton.disabled = false;
+        } else {
+            errorMessage.textContent = "No orders found in session storage.";
+        }
+
+        downloadButton.addEventListener("click", function () {
+            let csvContent = "data:text/csv;charset=utf-8,";
+            csvContent += "Customer Name,Item Name,Quantity,Price (RM)\n";
+
+            for (let key in sessionStorage) {
+                if (sessionStorage.hasOwnProperty(key) && key.startsWith("customer_")) {
+                    let customer = JSON.parse(sessionStorage.getItem(key));
+                    customer.orders.forEach(order => {
+                        csvContent += `${customer.name},${order.name},${order.quantity},${(order.price * order.quantity).toFixed(2)}\n`;
+                    });
+                }
+            }
+
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "all_orders.csv");
+            document.body.appendChild(link);
+
+            link.click();
+            document.body.removeChild(link);
+        });
+    });
+</script>
+
+
 </body>
-<hr>
     <footer>
         <div class="image-container2">
             <a href="https://www.google.com/maps/dir//607,+Jalan+17%2F10,+Seksyen+17,+46400+Petaling+Jaya,+Selangor/@3.1222898,101.5533822,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x31cc495d298b9beb:0xfe6a13c3cd6df28d!2m2!1d101.6357842!2d3.122293?entry=ttu&g_ep=EgoyMDI0MTExOS4yIKXMDSoASAFQAw%3D%3D" target="_self" title="Our Location">
