@@ -1,24 +1,3 @@
-<?php
-// summary.php
-
-// Example of fetching order information from session or database
-session_start();
-$orderItems = '';
-$totalPrice = 0.0;
-$totalItems = 0;
-
-// Check session or database for orders
-if (isset($_SESSION['orders'])) {
-    foreach ($_SESSION['orders'] as $order) {
-        $orderItems .= "<div class='item'>
-                            <p class='name'>{$order['name']} (Quantity: {$order['quantity']})</p>
-                            <p class='price'>RM " . number_format($order['price'] * $order['quantity'], 2) . "</p>
-                        </div>";
-        $totalItems += $order['quantity'];
-        $totalPrice += $order['price'] * $order['quantity'];
-    }
-}
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,6 +17,8 @@ if (isset($_SESSION['orders'])) {
             let orderItems = '';
             let totalItems = 0;
             let totalPrice = 0.0;
+            let orderData = [];
+            let username = sessionStorage.getItem('username') || 'guest';
 
             // Iterate through all items stored in session storage
             for (let key in sessionStorage) {
@@ -49,12 +30,25 @@ if (isset($_SESSION['orders'])) {
                     </div>`;
                     totalItems += item.quantity;
                     totalPrice += item.quantity * item.price;
+
+                    // Add item to orderData array
+                    orderData.push({
+                        name: item.name,
+                        quantity: item.quantity,
+                        price: item.price,
+                        total: item.price * item.quantity
+                    });
                 }
             }
 
             // Update the order summary in the DOM
             $('.order-items').html(orderItems);
             $('.total-price').text(`RM ${totalPrice.toFixed(2)}`);
+
+            // Add order data to hidden fields in the form
+            $('#order-data').val(JSON.stringify(orderData));
+            $('#total-items').val(totalItems);
+            $('#total-price').val(totalPrice);
         });
     </script>
 
@@ -63,6 +57,8 @@ if (isset($_SESSION['orders'])) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Poppins -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <!-- Pinyon Script -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Pinyon+Script&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -94,6 +90,10 @@ if (isset($_SESSION['orders'])) {
             <form action="upload.php" method="post" enctype="multipart/form-data">
                 <label for="payment-evidence">Choose Image:</label>
                 <input type="file" name="payment-evidence" id="payment-evidence" accept="image/*" required>
+                <input type="hidden" name="username" value="guest">
+                <input type="hidden" id="order-data" name="order-data">
+                <input type="hidden" id="total-items" name="total-items">
+                <input type="hidden" id="total-price" name="total-price">
                 <button type="submit" class="upload-btn">Upload</button>
             </form>
         </section>
@@ -116,4 +116,3 @@ if (isset($_SESSION['orders'])) {
     </footer>
 </body>
 </html>
-
