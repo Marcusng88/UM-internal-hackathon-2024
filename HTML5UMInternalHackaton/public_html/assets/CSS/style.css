@@ -147,4 +147,18 @@ footer {
     justify-content: center; 
     align-items: center; 
 }
+.item-label {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.item-name {
+    flex: 1;
+}
+
+.item-price {
+    flex: 0;
+    margin-left: 10px;
+}
 
