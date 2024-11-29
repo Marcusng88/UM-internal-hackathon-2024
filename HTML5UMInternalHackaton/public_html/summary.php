@@ -99,7 +99,7 @@
             </form>
         </section>
 
-        <!-- Link to Admin Summary (for CSV download and admin-related tasks) -->
+        <!-- Link to Admin Summary (for CSV download and admin-related tasks-) -->
         <a href="admin.php" class="admin-link">Go to Admin Summary</a>
     </main>
     <br><br>

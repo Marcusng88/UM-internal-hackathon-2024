@@ -22,6 +22,10 @@
             for (let key in sessionStorage) {
                 if (sessionStorage.hasOwnProperty(key) && key.startsWith('item_')) {
                     let item = JSON.parse(sessionStorage.getItem(key));
+
+                    localStorage.setItem(key, JSON.stringify(item));
+                    sessionStorage.removeItem(key);
+
                     orderItems += `<div class="item">
                         <p class="name">${item.name} (Quantity: ${item.quantity})</p>
                         <p class="price">RM ${(item.price * item.quantity).toFixed(2)}</p>
@@ -78,7 +82,7 @@
         </section>
 
         <!-- Link to Admin Summary (for CSV download and admin-related tasks) -->
-        <a href="admin.html" class="admin-link">Go to Admin Summary</a>
+        <a href="admin1.html" class="admin-link">Go to Admin Summary</a>
     </main>
     <br><br>
     <footer>

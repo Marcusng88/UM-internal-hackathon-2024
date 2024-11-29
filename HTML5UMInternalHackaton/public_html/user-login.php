@@ -49,19 +49,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                     $_SESSION['user'] = $user['username'];
                     $_SESSION['email'] = $user['email'];
 
-                    $stmt->close();
-
-                    $cmd = "INSERT INTO `session`(email) VALUES(?)";
-                    $stmt = $connect -> prepare($cmd);
-                    $stmt->bind_param("s", $email);
-                    $stmt->execute();
-
-                    $sessionId = $connect -> insert_id;
-                    $_SESSION['session'] = $sessionId;
+                    if($user['auth'] == "u"){
+                        header('Location: order.php');
+                    }else{
+                        header('Location: admin.php');
+                    }
 
                     $stmt->close();
-
-                    header('Location: order.php');
+     
                 }else{
                     die('
                         <div class="modal fade" id="warning" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="warning" aria-hidden="true">

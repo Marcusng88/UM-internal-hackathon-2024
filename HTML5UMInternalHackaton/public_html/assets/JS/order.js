@@ -10,9 +10,6 @@ $(document).ready(function() {
                 let item = JSON.parse(sessionStorage.getItem(key));
                 totalItems += item.quantity;
                 totalPrice += item.quantity * item.price;
-
-                // Update the input field with the stored quantity
-                $(`#${key.replace('item_', '')}`).val(item.quantity);
             }
         }
 
@@ -40,7 +37,7 @@ $(document).ready(function() {
         handleQuantityChange(itemId, itemName, itemPrice);
     });
 
-    // Initial update of the order summary and input fields
+    // Initial update of the order summary
     updateOrderSummary();
 
     // Handle place order button click
