@@ -1,3 +1,28 @@
+<?php
+// admin.php
+
+// Example of accessing orders stored in a database or session
+session_start();
+$orders = isset($_SESSION['orders']) ? $_SESSION['orders'] : [];
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['download_csv'])) {
+    // Generate CSV file
+    $csvContent = "Customer Name, Item Name, Quantity, Price (RM)\n";
+    foreach ($orders as $order) {
+        $csvContent .= "{$order['customer_name']}, {$order['name']}, {$order['quantity']}, " . number_format($order['price'] * $order['quantity'], 2) . "\n";
+    }
+    
+    // Set headers to force file download
+    header('Content-Type: text/csv');
+    header('Content-Disposition: attachment; filename="orders.csv"');
+    echo $csvContent;
+    exit();
+}
+?>
+/* 
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template
+ */
 <!DOCTYPE html>
 <html>
 <head>
@@ -95,5 +120,4 @@
     </footer>
 </body>
 </html>
-
 

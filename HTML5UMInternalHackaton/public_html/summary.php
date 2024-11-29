@@ -1,3 +1,24 @@
+<?php
+// summary.php
+
+// Example of fetching order information from session or database
+session_start();
+$orderItems = '';
+$totalPrice = 0.0;
+$totalItems = 0;
+
+// Check session or database for orders
+if (isset($_SESSION['orders'])) {
+    foreach ($_SESSION['orders'] as $order) {
+        $orderItems .= "<div class='item'>
+                            <p class='name'>{$order['name']} (Quantity: {$order['quantity']})</p>
+                            <p class='price'>RM " . number_format($order['price'] * $order['quantity'], 2) . "</p>
+                        </div>";
+        $totalItems += $order['quantity'];
+        $totalPrice += $order['price'] * $order['quantity'];
+    }
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -95,3 +116,4 @@
     </footer>
 </body>
 </html>
+
