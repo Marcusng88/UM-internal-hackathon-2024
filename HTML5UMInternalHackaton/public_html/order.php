@@ -53,7 +53,7 @@
             <div class="gallery-item">
                 <img src="assets/Images/image CC.jpg" alt="Western Dish 1">
                 <div class="order-form">
-                    <label for="western1">Western Dish 1 (RM 20.00)</label>
+                    <label for="western1">Special Chicken Chop (RM 20.00)</label>
                     <input type="number" id="western1" name="western1" min="0" value="0" class="item-quantity">
                 </div>
             </div>
@@ -61,7 +61,7 @@
             <div class="gallery-item">
                 <img src="assets/Images/image LC.jpg" alt="Western Dish 2">
                 <div class="order-form">
-                    <label for="western2">Western Dish 2 (RM 32.00)</label>
+                    <label for="western2">Special Lamb Shoulder (RM 32.00)</label>
                     <input type="number" id="western2" name="western2" min="0" value="0" class="item-quantity">
                 </div>
             </div>
