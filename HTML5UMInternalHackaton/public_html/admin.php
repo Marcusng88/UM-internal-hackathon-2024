@@ -21,7 +21,10 @@ if (file_exists($filePath)) {
                 'quantity' => $data[2],
                 'price' => $data[3],
                 'total' => $data[4],
-                'date' => $data[5]
+                'cutlery' => $data[5],
+                'delivery' => $data[6],
+                'spot' => $data[7],
+                'date' => $data[8]
             ];
         }
         fclose($file);
@@ -121,6 +124,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['download_csv'])) {
                     <th>Quantity</th>
                     <th>Price (RM)</th>
                     <th>Total (RM)</th>
+                    <th>Cutlery</th>
+                    <th>Delivery</th>
+                    <th>Spot</th>
                     <th>Date</th>
                 </tr>
                 <?php foreach ($orders as $order): ?>
@@ -130,6 +136,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['download_csv'])) {
                     <td><?php echo htmlspecialchars($order['quantity']); ?></td>
                     <td><?php echo htmlspecialchars($order['price']); ?></td>
                     <td><?php echo htmlspecialchars($order['total']); ?></td>
+                    <td><?php echo htmlspecialchars($order['cutlery']); ?></td>
+                    <td><?php echo htmlspecialchars($order['delivery']); ?></td>
+                    <td><?php echo htmlspecialchars($order['spot']); ?></td>
                     <td><?php echo htmlspecialchars($order['date']); ?></td>
                 </tr>
                 <?php endforeach; ?>

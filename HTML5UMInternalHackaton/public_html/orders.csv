@@ -1,9 +1,2 @@
 username,name,quantity,price,total,date
-abc,"Western Grill",1,25,25,2024-11-29
-abc,"Teh Tarik (Hot)",2,2,4,2024-11-29
-abc,"Nasi Campur",1,10,10,2024-11-29
-abc,"Western Grill",1,25,25,2024-11-29
-harry,"Spaghetti Bolognese",3,20,60,2024-11-29
-harry,"Nasi Lemak Special",2,15,30,2024-11-29
-harry,"Spaghetti Bolognese",3,20,60,2024-11-29
-harry,"Nasi Lemak Special",2,15,30,2024-11-29
+maq,"Western Grill",2,25,50,yes,delivery,"UM Sentral",2024-11-29
