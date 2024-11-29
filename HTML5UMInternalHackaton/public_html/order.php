@@ -72,12 +72,8 @@
             <h3>Order Summary</h3>
             <p>Total Items: <span id="total-items">0</span></p>
             <p>Total Price: RM<span id="total-price">0.00</span></p>
-            <button id="place-order">Place Order</button>
-            <script>
-            document.getElementById("place-order").addEventListener("click", function () {
-                window.location.href = "summary.html"; 
-            });
-            </script>
+            <a href ="summary.html" target="_self" class="order-btn">Place Order</a>
+            
         </div>
     </form>
         <br><br>
