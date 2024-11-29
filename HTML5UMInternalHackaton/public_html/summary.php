@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -90,7 +91,7 @@
             <form action="upload.php" method="post" enctype="multipart/form-data">
                 <label for="payment-evidence">Choose Image:</label>
                 <input type="file" name="payment-evidence" id="payment-evidence" accept="image/*" required>
-                <input type="hidden" name="username" value="guest">
+                <input type="hidden" name="username" value="<?php echo $_SESSION["user"]?>">
                 <input type="hidden" id="order-data" name="order-data">
                 <input type="hidden" id="total-items" name="total-items">
                 <input type="hidden" id="total-price" name="total-price">
