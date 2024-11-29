@@ -18,6 +18,8 @@
         <!-- JavaScript -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
         <script src="assets/JS/aos.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="assets/JS/order.js"></script> <!-- Include the common JavaScript file -->
 
         <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,7 +36,7 @@
 
         <nav class =" navbar">
             <ul>
-                <li><a href="order.html">Western</a></li>
+                <li><a href="order.php">Western</a></li>
                 <li><a href="asian.html">Asian</a></li>
                 <li><a href="fastfood.html">Fast Food</a></li>
                 <li><a href="beverage.html">Beverage</a></li>
