@@ -48,6 +48,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                 if(password_verify($password,$user['password'])){
                     $_SESSION['user'] = $user['username'];
                     $_SESSION['email'] = $user['email'];
+
+                    $stmt->close();
+
+                    $cmd = "INSERT INTO `session`(email) VALUES(?)";
+                    $stmt = $connect -> prepare($cmd);
+                    $stmt->bind_param("s", $email);
+                    $stmt->execute();
+
+                    $sessionId = $connect -> insert_id;
+                    $_SESSION['session'] = $sessionId;
+
+                    $stmt->close();
+
                     header('Location: order.php');
                 }else{
                     die('
