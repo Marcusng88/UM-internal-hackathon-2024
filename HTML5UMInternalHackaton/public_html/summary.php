@@ -1,4 +1,11 @@
-<?php session_start();?>
+<?php 
+    session_start();
+    $delivery = $_GET['delivery'];
+    $cutlery = $_GET['cutlery'];
+    if(isset($_GET['spot'])){
+        $spot = $_GET['spot'];
+    }
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -98,9 +105,6 @@
                 <button type="submit" class="upload-btn">Upload</button>
             </form>
         </section>
-
-        <!-- Link to Admin Summary (for CSV download and admin-related tasks-) -->
-        <a href="admin.php" class="admin-link">Go to Admin Summary</a>
     </main>
     <br><br>
     <footer>

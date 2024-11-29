@@ -44,6 +44,6 @@ $(document).ready(function() {
     $('#place-order').on('click', function(e) {
         e.preventDefault();
         // Redirect to summary page
-        window.location.href = 'summary.php';
+        window.location.href = 'confirmation.html';
     });
 });

@@ -106,13 +106,13 @@
     </header>
     <div class="container">
         <h1>Confirm Your Order</h1>
-        <form action="ConfirmationServlet" method="post">
+        <form action="confirmation-process.php" method="post">
             <div class="form-group">
                 
                 <label for="pickup">Pickup (Free)</label>
                 <input type="radio" id="pickup" name="delivery" value="pickup" required onclick="toggleDeliveryOptions()">
                 
-                <label for="delivery">Delivery (Charges Apply)</label>
+                <label for="delivery">Delivery (Free)</label>
                 <input type="radio" id="delivery" name="delivery" value="delivery" onclick="toggleDeliveryOptions()">
             </div>
             
@@ -120,12 +120,20 @@
             <div id="delivery-container" class="hidden form-group">
                 <label for="delivery_confirmation">Delivery Spot:</label>
                 <select id="delivery_confirmation" name="delivery_confirmation">
-                    <option value="KK 8">RM 2 - Kolej Kediaman Kinabalu UM</option>
-                    <option value="FSKTM">RM 3 - Fakulti Sains Komputer dan Teknologi Maklumat UM</option>
-                    <option value="UM Sentral">RM 4 - UM Sentral</option>
+                    <option value="Kolej Kediaman Kinabalu UM">Kolej Kediaman Kinabalu UM</option>
+                    <option value="Fakulti Sains Komputer dan Teknologi Maklumat UM">Fakulti Sains Komputer dan Teknologi Maklumat UM</option>
+                    <option value="UM Sentral">UM Sentral</option>
                 </select>
             </div>
-            
+
+            <div id="delivery-container" class="form-group">
+                <label for="delivery_confirmation">Do you need cutleries?</label>
+                <select id="delivery_confirmation" name="cutlery_conf">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+ 
             <div class="button-container">
                 <button type="submit">Submit</button>
             </div>
